@@ -27,14 +27,14 @@ class Tile():
     
     def calcShadow(self):
         if self.above != None: 
-            othershadow = 0
-            if self.left != None:
-                newshadow = self.left.shadow % 2
-                othershadow += random.randint(0,newshadow)
-            if self.right != None:
-                newshadow = self.left.shadow % 2
-                othershadow -= random.randint(0,newshadow)
-            self.shadow += 1+self.above.shadow+othershadow
+            # othershadow = 0
+            # if self.left != None:
+            #     newshadow = self.left.shadow % 5
+            #     othershadow += random.randint(0,newshadow)
+            # if self.right != None:
+            #     newshadow = self.left.shadow % 5
+            #     othershadow += random.randint(0,newshadow)
+            self.shadow += 1+self.above.shadow
     
     pass
 
