@@ -11,7 +11,9 @@ class Chunk():
         self.chunk_data = []
         
         self.color1 = color1
+        self.color1ground = colorManipulation.darken(color1,2)
         self.color2 = color2
+        self.color2ground = colorManipulation.darken(color2,2)
         self.active = False
         self.origin = (originx,originy)
 
@@ -32,9 +34,9 @@ class Chunk():
                 # colorpick = pythonperlin.perlin((30,4),7,8)[0][1]
                 colorpick = 1
                 if colorpick == 1:
-                    newcolor = self.color1
+                    newcolor = self.color1ground
                 else:
-                    newcolor = self.color2
+                    newcolor = self.color2ground
                 # newtile = [[x,y],newcolor,0]
                 newtile = Tile([x,y],newcolor,0)
                 newtile.findAdjacent(self)

@@ -1,12 +1,23 @@
 import pygame
 import world.world as world
 
+# class Game():
 
-pygame.init()
+#     width = 1280
+#     height = 720
+#     def __init__(self):
+#         self.screen = pygame.display.set_mode((width,height))
+#         self.clock = pygame.time.Clock()
+#         self.running = True
+
+#         self.scene = world.World()
+
+#         pygame.init()
+#         pass
 
 width = 1280
 height = 720
-screen = pygame.display.set_mode((width,height))
+screen = pygame.display.set_mode((width, height))
 clock = pygame.time.Clock()
 running = True
 
@@ -14,17 +25,17 @@ world1 = world.World()
 
 position = [0,0]
 velocity = [0,720//2]
+centerofscreen = [0,720//2]
 
 while running: 
-    
     for event in pygame.event.get():
         if event.type == pygame.QUIT:
             running = False
-    
-    
+
     screen.fill("black")
 
     keys = pygame.key.get_pressed()
+
     if keys[pygame.K_q]:
         running = False
     if keys[pygame.K_w]:
@@ -33,18 +44,14 @@ while running:
         pass
     if keys[pygame.K_s]:
         velocity[1] -= 10
-        
 
         pass
     if keys[pygame.K_a]:
         velocity[0] += 10
-        
         pass
 
     if keys[pygame.K_d]:
         velocity[0] -= 10
-        
-
         pass
     if keys[pygame.K_r]:
         world1 = world.World()
@@ -56,10 +63,8 @@ while running:
     world1.update(velocity)
     world1.draw(screen,velocity)
     keys = pygame.key.get_pressed()
-    
 
 
-    
     pygame.display.flip()
     fps = clock.get_fps()
     pygame.display.set_caption(str(fps))

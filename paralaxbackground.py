@@ -1,6 +1,6 @@
 import random 
 import pygame
-
+import colorManipulation
 class ParalaxBackground:
     
     def __init__(self,color1,color2):
